@@ -3,6 +3,7 @@
   become: true
 
   roles:
+    - env_py3
     - common
 
   tasks:
