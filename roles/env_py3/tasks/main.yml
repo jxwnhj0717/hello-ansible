@@ -4,12 +4,7 @@
 
 - name: print
   debug:
-    msg: ansible_python_version {{ ansible_python_version }}
-
-- name: Get python version
-  vars:
-    py3: true
-  when: ansible_python_version is match("3.*")
+    msg: ansible_python_version {{ ansible_python_version }} ..
 
 - name: Install pip 3.6
   dnf:
