@@ -1,9 +1,15 @@
+- name: Get stats of the FS object
+  stat:
+    path: /usr/bin/python3
+  register: py3
+
 - name: Install python 3.6 and pip3
   package:
     name:
       - python36
       - libselinux-python
     state: present
+  when: py3.stat.exists == False
 
 - name: Install SELinux for Python 3
   pip:
