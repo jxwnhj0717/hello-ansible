@@ -7,8 +7,12 @@
     pip3_exec: /usr/bin/pip3
 
   roles:
-    - env_py3
-    - common
+    - role: check_py
+    - role: env_py3
+      when: py3 is defined
+    - role: env_py2
+      when: py2 is defined
+    - role: common
 
   tasks:
     - name: 启动zookeeper container

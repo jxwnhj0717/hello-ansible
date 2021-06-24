@@ -1,10 +1,9 @@
 [mongodb]
-mongodb ansible_host=101.34.3.126
+mongodb ansible_host=106.53.105.167
 
 [zookeeper]
-zookeeper ansible_host=47.100.227.204
-
+zookeeper ansible_host=101.34.3.126
 
 #106.53.105.167
-
+#47.100.227.204
 

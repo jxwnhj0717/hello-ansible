@@ -1,11 +1,3 @@
-- name: Re-read facts after adding custom fact
-  setup:
-    filter: ansible_python_version
-
-- name: Get stats of the python3
-  vars:
-    py2: {{ ansible_python_version }} is match("2.*")
-
 - name: Install python 3.6 and pip3
   yum:
     name:
@@ -18,6 +10,6 @@
     name:
       - selinux
     state: present
-    executable: {{ pip3_exec }}
+    executable: "{{ pip3_exec }}"
   vars:
-    ansible_python_interpreter: {{ python3_exec }}
+    ansible_python_interpreter: "{{ python3_exec }}"

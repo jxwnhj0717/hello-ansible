@@ -1,0 +1,17 @@
+- name: Get facts of ansible_python_version
+  setup:
+    filter: ansible_python_version
+
+- name: Print python version
+  debug:
+    msg: ansible_python_version {{ ansible_python_version }}
+
+- name: define var py3
+  set_fact:
+    py3: true
+  when: ansible_python_version is match("3.*")
+
+- name: define var py2
+  set_fact:
+    py2: true
+  when: ansible_python_version is match("2.*")
