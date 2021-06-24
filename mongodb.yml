@@ -5,6 +5,7 @@
   tasks:
     - name: 启动mongodb container
       docker_container:
+        name: mongodb_ansible
         image: mongo
         published_ports: 27027:27017
         state: started
