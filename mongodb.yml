@@ -8,6 +8,11 @@
         name: python-pip
         state: present
 
+    - name: 安装Python typing模块
+      pip:
+        name: typing
+        state: present
+
     - name: 更新Python pip
       pip:
         name: pip
@@ -21,11 +26,6 @@
     - name: 安装Python selectors模块
       pip:
         name: selectors
-        state: present
-
-    - name: 安装Python typing模块
-      pip:
-        name: typing
         state: present
 
     - name: 启动mongodb container
