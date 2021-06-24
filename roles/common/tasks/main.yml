@@ -31,18 +31,21 @@
     ansible_python_interpreter: /usr/bin/python3
 
 - name: Install ETLHelper
-  pip3:
+  pip:
     name:
       - etlhelper
     state: present
+    executable: /usr/bin/pip3
 
 - name: 安装Python docker模块
-  pip3:
+  pip:
     name: docker
     state: present
+    executable: /usr/bin/pip3
 
 - name: 安装Python selectors模块
-  pip3:
+  pip:
     name: selectors
     state: present
+    executable: /usr/bin/pip3
 
