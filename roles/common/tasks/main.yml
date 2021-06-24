@@ -30,7 +30,7 @@
   when: pip3_stat.stat.exists == False
 
 - name: Install libselinux-python
-  apt:
+  dnf:
     name:
       - libselinux-python
     state: present
