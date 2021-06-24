@@ -14,10 +14,18 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
-- name: Install SELinux for Python 3
+#- name: Install libselinux-python
+#  yum:
+#    name:
+#      - libselinux-python
+#    state: present
+#  vars:
+#    ansible_python_interpreter: /usr/bin/python2
+
+- name: Install python3-libselinux for Python 3
   dnf:
     name:
-      - selinux
+      - python3-libselinux
     state: present
   vars:
     ansible_python_interpreter: /usr/bin/python3
