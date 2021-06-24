@@ -4,12 +4,14 @@
   register: py3
 
 - name: Install python 3.6 and pip3
-  dnf:
+  yum:
     name:
       - python36
       - libselinux-python
     state: present
-#  when: py3.stat.exists == False
+  vars:
+    ansible_python_interpreter: /usr/bin/python2
+  #  when: py3.stat.exists == False
 
 - name: Install SELinux for Python 3
   pip:
