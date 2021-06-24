@@ -2,6 +2,10 @@
   hosts: zookeeper
   become: true
 
+  vars:
+    python3_exec: /usr/bin/python3
+    pip3_exec: /usr/bin/pip3
+
   roles:
     - env_py3
     - common
