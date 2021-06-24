@@ -27,12 +27,12 @@
         executable: pip3
 
     - name: 安装Python docker模块
-      pip:
+      pip3:
         name: docker
         state: present
 
     - name: 安装Python selectors模块
-      pip:
+      pip3:
         name: selectors
         state: present
 
