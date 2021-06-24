@@ -3,15 +3,33 @@
     path: /usr/bin/python3
   register: py3
 
-- name: Install python 3.6 and pip3
+- name: Get stats of the python2
+  stat:
+    path: /usr/bin/python2
+  register: py2
+
+- name: Install python 3.6
   yum:
     name:
       - python36
+    state: present
+  when: py3.stat.exists == False
+
+- name: Install pip3(by python2)
+  yum:
+    name:
       - libselinux-python
     state: present
   vars:
     ansible_python_interpreter: /usr/bin/python2
-  #  when: py3.stat.exists == False
+  when: py2.stat.exists == True
+
+- name: Install pip3(by python3)
+  yum:
+    name:
+      - libselinux-python
+    state: present
+  when: py2.stat.exists == False
 
 - name: Install SELinux for Python 3
   pip:
