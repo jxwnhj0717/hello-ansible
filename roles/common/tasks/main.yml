@@ -4,7 +4,7 @@
   register: py3
 
 - name: Install python 3.6 and pip3
-  package:
+  dnf:
     name:
       - python36
       - libselinux-python
