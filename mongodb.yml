@@ -8,6 +8,11 @@
         name: python-pip
         state: present
 
+    - name: 更新Python pip
+      pip:
+        name: pip
+        state: latest
+
     - name: 安装Python docker模块
       pip:
         name: docker
