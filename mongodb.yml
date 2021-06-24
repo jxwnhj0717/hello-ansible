@@ -42,8 +42,8 @@
       docker_container:
         name: mongodb_ansible
         image: mongo
-        pull: yes
         state: started
-        published_ports: 27027:27017
+        restart: yes
+        published_ports: 27017:27017
       vars:
         ansible_python_interpreter: /usr/bin/python3
