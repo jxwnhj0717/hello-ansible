@@ -11,6 +11,10 @@
       pip:
         name: docker
         state: present
+    - name: 安装Python ansible模块
+      pip:
+        name: ansible
+        state: present
     - name: 启动mongodb container
       docker_container:
         name: mongodb_ansible
