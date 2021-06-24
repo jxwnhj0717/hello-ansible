@@ -3,20 +3,28 @@
   become: true
 
   tasks:
-    - name: 安装Python pip
+    - name: Install python 3.6 and pip3
       yum:
-        name: python-pip
+        name:
+          - python36
+          - libselinux-python
         state: present
 
-    - name: 安装Python typing模块
+    - name: Install SELinux for Python 3
       pip:
-        name: typing
+        name:
+          - selinux
         state: present
+        executable: pip3
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
 
-    - name: 更新Python pip
+    - name: Install ETLHelper
       pip:
-        name: pip
-        state: latest
+        name:
+          - etlhelper
+        state: present
+        executable: pip3
 
     - name: 安装Python docker模块
       pip:
