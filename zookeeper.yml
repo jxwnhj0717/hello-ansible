@@ -1,0 +1,17 @@
+- name: zookeeper service
+  hosts: zookeeper
+  become: true
+
+  roles:
+    - common
+
+  tasks:
+    - name: 启动zookeeper container
+      docker_container:
+        name: zookeeper_ansible
+        image: zookeeper
+        state: started
+        restart: yes
+        published_ports: 2181:2181
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
