@@ -35,17 +35,17 @@
     name:
       - etlhelper
     state: present
-    executable: /usr/bin/pip3
+    executable: /usr/local/bin/pip3
 
 - name: 安装Python docker模块
   pip:
     name: docker
     state: present
-    executable: /usr/bin/pip3
+    executable: /usr/local/bin/pip3
 
 - name: 安装Python selectors模块
   pip:
     name: selectors
     state: present
-    executable: /usr/bin/pip3
+    executable: /usr/local/bin/pip3
 
