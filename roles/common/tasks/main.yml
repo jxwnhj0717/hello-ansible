@@ -21,8 +21,8 @@
       - libselinux-python
     state: present
   vars:
-    ansible_python_interpreter: /usr/bin/python2
-  when: py2.stat.exists == True
+    ansible_python_interpreter: /usr/bin/python3
+  when: py3.stat.exists == True
 
 - name: Install pip3(by python3)
   yum:
