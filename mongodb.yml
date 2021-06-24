@@ -1,0 +1,10 @@
+- name: mongodb service
+  hosts: mongodb
+  become: true
+
+  tasks:
+    - name: 启动mongodb container
+      docker_container:
+        image: mongo
+        published_ports: 27027:27017
+        state: started
