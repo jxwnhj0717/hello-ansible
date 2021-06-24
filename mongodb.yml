@@ -27,14 +27,16 @@
         executable: pip3
 
     - name: 安装Python docker模块
-      pip3:
+      pip:
         name: docker
         state: present
+        executable: pip3
 
     - name: 安装Python selectors模块
-      pip3:
+      pip:
         name: selectors
         state: present
+        executable: pip3
 
     - name: 启动mongodb container
       docker_container:
