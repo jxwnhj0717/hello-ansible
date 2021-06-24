@@ -1,48 +1,24 @@
-- name: Get stats of the python3
-  stat:
-    path: /usr/bin/python3
-  register: py3
-
-- name: Get stats of the pip3
-  stat:
-    path: /usr/bin/pip3
-  register: pip3_stat
-
-- name: Get stats of the python2
-  stat:
-    path: /usr/bin/python2
-  register: py2
-
 - name: Install python 3.6
-  yum:
+  dnf:
     name:
       - python3
     state: present
-  when: py3.stat.exists == False
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
 - name: Install pip 3.6
-  yum:
+  dnf:
     name:
       - python3-pip
     state: present
   vars:
     ansible_python_interpreter: /usr/bin/python3
-  when: pip3_stat.stat.exists == False
-
-#- name: Install libselinux-python
-#  yum:
-#    name:
-#      - libselinux-python
-#    state: present
-#  vars:
-#    ansible_python_interpreter: /usr/bin/python2
 
 - name: Install SELinux for Python 3
-  pip:
+  dnf:
     name:
       - selinux
     state: present
-#    executable: pip3
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
@@ -51,7 +27,7 @@
     name:
       - etlhelper
     state: present
-#    executable: pip3
+    executable: pip3
 
 - name: 安装Python docker模块
   pip:
