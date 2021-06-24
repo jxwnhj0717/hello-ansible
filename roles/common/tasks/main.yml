@@ -42,7 +42,7 @@
     name:
       - selinux
     state: present
-    executable: pip3
+#    executable: pip3
   vars:
     ansible_python_interpreter: /usr/bin/python3
 
@@ -51,7 +51,7 @@
     name:
       - etlhelper
     state: present
-    executable: pip3
+#    executable: pip3
 
 - name: 安装Python docker模块
   pip:
