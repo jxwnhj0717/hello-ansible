@@ -30,7 +30,7 @@
   when: pip3_stat.stat.exists == False
 
 - name: Install libselinux-python
-  yum:
+  dnf:
     name:
       - libselinux-python
     state: present
