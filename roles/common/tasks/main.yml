@@ -21,7 +21,7 @@
   when: py3.stat.exists == False
 
 - name: Install pip 3.6
-  yum:
+  apt:
     name:
       - python3-pip
     state: present
@@ -30,7 +30,7 @@
   when: pip3_stat.stat.exists == False
 
 - name: Install libselinux-python
-  dnf:
+  apt:
     name:
       - libselinux-python
     state: present
