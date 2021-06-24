@@ -1,5 +1,5 @@
+---
 python2_exec: /usr/bin/python
 pip_exec: /usr/bin/pip
 python3_exec: /usr/bin/python3
 pip3_exec: /usr/bin/pip3
-#pip3_exec=/usr/local/bin/pip3

@@ -2,17 +2,15 @@
   hosts: zookeeper
   become: true
 
-  vars:
-    python3_exec: /usr/bin/python3
-    pip3_exec: /usr/bin/pip3
+#  vars:
+#    python3_exec: /usr/bin/python3
+#    pip3_exec: /usr/bin/pip3
 
   roles:
-    - role: check_py
-    - role: env_py3
-      when: py3 is defined
-    - role: env_py2
-      when: py2 is defined
-    - role: common
+    - check_py
+    - env_py3
+    - env_py2
+    - common
 
   tasks:
     - name: 启动zookeeper container
@@ -23,4 +21,4 @@
         restart: yes
         published_ports: 2181:2181
       vars:
-        ansible_python_interpreter: /usr/bin/python3
+        ansible_python_interpreter: "{{ python3_exec }}"

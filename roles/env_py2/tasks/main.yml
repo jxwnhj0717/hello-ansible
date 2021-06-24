@@ -4,6 +4,7 @@
       - python36
       - libselinux-python
     state: present
+  when: py2 is defined
 
 - name: Install SELinux for Python 3
   pip:
@@ -13,3 +14,4 @@
     executable: "{{ pip3_exec }}"
   vars:
     ansible_python_interpreter: "{{ python3_exec }}"
+  when: py2 is defined

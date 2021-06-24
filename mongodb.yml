@@ -14,4 +14,4 @@
         restart: yes
         published_ports: 27017:27017
       vars:
-        ansible_python_interpreter: /usr/bin/python3
+        ansible_python_interpreter: "{{ python3_exec }}"
