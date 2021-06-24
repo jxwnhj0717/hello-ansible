@@ -7,14 +7,17 @@
       yum:
         name: python-pip
         state: present
+
     - name: 安装Python docker模块
       pip:
         name: docker
         state: present
-    - name: 安装Python selector模块
+
+    - name: 安装Python selectors模块
       pip:
-        name: selector
+        name: selectors
         state: present
+
     - name: 启动mongodb container
       docker_container:
         name: mongodb_ansible
