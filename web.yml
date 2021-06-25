@@ -1,0 +1,20 @@
+- name: web service
+  hosts: web
+  become: true
+
+  roles:
+    - check_py
+    - env_py3
+    - env_py2
+    - common
+
+  tasks:
+    - name: 启动web container
+      docker_container:
+        name: hello_ansible_web_ansible_{{ server.port.expose }}
+        image: jxwnhj0717/hello-ansible-web:latest
+        state: started
+        restart: yes
+        published_ports: {{ server.port.expose }}:{{ server.port }}
+      vars:
+        ansible_python_interpreter: "{{ python3_exec }}"
