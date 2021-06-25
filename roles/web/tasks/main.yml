@@ -23,6 +23,11 @@
   vars:
     ansible_python_interpreter: "{{ python3_exec }}"
 
+- name: Waits for started
+  wait_for:
+    port: "{{ server_port_expose }}"
+    timeout: 10
+
 - name: Get web container output
   shell: docker logs web_{{ server_port_expose }}_ansible
   register: container_output
