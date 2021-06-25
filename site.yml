@@ -1,0 +1,5 @@
+---
+- include: mongodb.yml
+- include: zookeeper.yml
+- include: web.yml
+- include: nginx.yml

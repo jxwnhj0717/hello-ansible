@@ -25,3 +25,8 @@
 
 - name: Get nginx container output
   shell: docker logs nginx_ansible
+  register: container_output
+
+- name: Print nginx container output
+  debug:
+    var: container_output
