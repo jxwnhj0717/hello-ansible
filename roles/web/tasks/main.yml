@@ -12,6 +12,7 @@
   docker_container:
     name: "hello_ansible_web_ansible_{{ server_port_expose }}"
     image: jxwnhj0717/hello-ansible-web:latest
+    pull: yes
     state: started
     restart: yes
     published_ports:
