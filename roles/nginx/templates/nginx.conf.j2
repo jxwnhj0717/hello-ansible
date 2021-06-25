@@ -17,7 +17,7 @@ http {
 
 	upstream web {
         {% for host in groups['web'] %}
-            "server {{ host }}:{{ hostvars[host]['server_port_expose'] }};"
+            "server {{ hostvars[host]['ansible_host'] }}:{{ hostvars[host]['server_port_expose'] }};"
         {% endfor %}
 	}
 
