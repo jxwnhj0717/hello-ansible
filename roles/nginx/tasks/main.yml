@@ -26,4 +26,4 @@
 
 - name: Get its output
   debug:
-    msg: "{{ container_output.ansible_facts.docker_container.Output }}"
+    msg: "{{ container_output.ansible_facts.docker_container }}"
