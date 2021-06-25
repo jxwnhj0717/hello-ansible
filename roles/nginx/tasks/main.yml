@@ -14,10 +14,15 @@
     image: nginx
     state: started
     restart: yes
-    output_logs: yes
+    detach: false
     published_ports:
       - 8084:80
     volumes:
       - "/data/nginx/conf/nginx.conf:/etc/nginx/nginx.conf"
   vars:
     ansible_python_interpreter: "{{ python3_exec }}"
+  register: container_output
+
+- name: Get its output
+  debug:
+    msg: "{{ container_output.ansible_facts.docker_container.Output }}"
