@@ -1,0 +1,22 @@
+- name: 创建配置目录
+  file:
+    path: "/data/nginx/conf"
+    state: directory
+
+- name: 创建nginx.conf文件
+  template:
+    src: nginx.conf.j2
+    dest: "/data/nginx/conf/nginx.conf"
+
+- name: 启动nginx container
+  docker_container:
+    name: nginx_ansible
+    image: nginx
+    state: started
+    restart: yes
+    published_ports:
+      - 8084:80
+    volumes:
+      - "/data/nginx/conf/nginx.conf:/etc/nginx/nginx.conf"
+  vars:
+    ansible_python_interpreter: "{{ python3_exec }}"

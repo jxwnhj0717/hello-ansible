@@ -1,0 +1,32 @@
+
+#user  nobody;
+worker_processes  1;
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+	upstream web {
+        {% for host in groups['web'] %}
+            "server {{ host }}:{{ hostvars[host]['server_port_expose'] }};"
+        {% endfor %}
+	}
+
+    server {
+        listen       80;
+
+        location / {
+			proxy_pass http://web;
+		}
+    }
+
+}

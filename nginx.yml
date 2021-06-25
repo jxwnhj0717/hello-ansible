@@ -1,0 +1,10 @@
+- name: nginx service
+  hosts: nginx
+  become: true
+
+  roles:
+    - check_py
+    - env_py3
+    - env_py2
+    - common
+    - nginx
