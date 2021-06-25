@@ -10,7 +10,7 @@
 
 - name: 启动web container
   docker_container:
-    name: "hello_ansible_web_ansible_{{ server_port_expose }}"
+    name: "web_{{ server_port_expose }}_ansible"
     image: jxwnhj0717/hello-ansible-web:latest
     pull: yes
     state: started
@@ -19,10 +19,9 @@
       - "{{ server_port_expose }}:{{ server_port }}"
     volumes:
       - "/data/web/{{ server_port_expose }}/resources/application.yml:/app/resources/application.yml"
+    timeout: 10
   vars:
     ansible_python_interpreter: "{{ python3_exec }}"
-  register: web_console
 
-- name: 输出web container控制台信息
-  debug:
-    var: web_console
+- name: Get web container output
+  shell: docker logs web_{{ server_port_expose }}_ansible
