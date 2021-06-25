@@ -20,7 +20,6 @@
         state: started
         restart: yes
         published_ports: 2181:2181
-        timeout: 10
       vars:
         ansible_python_interpreter: "{{ python3_exec }}"
 

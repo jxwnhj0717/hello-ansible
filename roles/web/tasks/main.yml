@@ -19,7 +19,7 @@
       - "{{ server_port_expose }}:{{ server_port }}"
     volumes:
       - "/data/web/{{ server_port_expose }}/resources/application.yml:/app/resources/application.yml"
-    timeout: 10
+#    timeout: 10
   vars:
     ansible_python_interpreter: "{{ python3_exec }}"
 
