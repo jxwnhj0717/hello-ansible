@@ -7,14 +7,28 @@
     - env_py3
     - env_py2
     - common
+    - web
 
   tasks:
+    - name: 创建application.yml文件
+      template:
+        src: application.yml.j2
+        dest: "/data/web/{{ server_port_expose }}/resources/application.yml"
+
     - name: 启动web container
       docker_container:
         name: "hello_ansible_web_ansible_{{ server_port_expose }}"
         image: jxwnhj0717/hello-ansible-web:latest
         state: started
         restart: yes
-        published_ports: "{{ server_port_expose }}:{{ server_port }}"
+        published_ports:
+          - "{{ server_port_expose }}:{{ server_port }}"
+        volumes:
+          - "/data/web/{{ server_port_expose }}/resources/application.yml:/app/resources/application.yml"
       vars:
         ansible_python_interpreter: "{{ python3_exec }}"
+      register: web_console
+
+    - name: 输出web container控制台信息
+      debug:
+        var: web_console
