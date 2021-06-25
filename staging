@@ -5,9 +5,9 @@ mongodb ansible_host=101.34.3.126
 zookeeper ansible_host=106.53.105.167
 
 [web]
-web1 ansible_host=101.34.3.126 server.port.expose=8081
+web1 ansible_host=101.34.3.126 server_port_expose=8081
 
 [web:vars]
-server.port=8080
-mongodb.host=101.34.3.126
-zookeeper.connectString=106.53.105.167:2181
+server_port=8080
+mongodb_host=101.34.3.126
+zookeeper_connectString=106.53.105.167:2181
