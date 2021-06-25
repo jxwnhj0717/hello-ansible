@@ -11,10 +11,10 @@
   tasks:
     - name: 启动web container
       docker_container:
-        name: hello_ansible_web_ansible_{{ server.port.expose }}
+        name: "hello_ansible_web_ansible_{{ server.port.expose }}"
         image: jxwnhj0717/hello-ansible-web:latest
         state: started
         restart: yes
-        published_ports: {{ server.port.expose }}:{{ server.port }}
+        published_ports: "{{ server.port.expose }}:{{ server.port }}"
       vars:
         ansible_python_interpreter: "{{ python3_exec }}"
