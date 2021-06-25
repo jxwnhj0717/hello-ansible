@@ -14,7 +14,7 @@
     image: nginx
     state: started
     restart: yes
-    detach: false
+    output_logs: yes
     published_ports:
       - 8084:80
     volumes:
