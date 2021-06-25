@@ -1,3 +1,8 @@
+- name: 创建配置目录
+  file:
+    path: "/data/web/{{ server_port_expose }}/resources/"
+    state: directory
+
 - name: 创建application.yml文件
   template:
     src: application.yml.j2
