@@ -13,3 +13,6 @@ web3 ansible_host=106.53.105.167 server_port_expose=8083
 server_port=8080
 mongodb_host=101.34.3.126
 zookeeper_connectString=106.53.105.167:2181
+
+[nginx]
+nginx ansible_host=101.34.3.126 server_port_expose=8084
