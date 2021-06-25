@@ -26,3 +26,8 @@
 
     - name: Get zookeeper container output
       shell: docker logs zookeeper_ansible
+      register: container_output
+
+    - name: Print zookeeper container output
+      debug:
+        var: container_output.stdout

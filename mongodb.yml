@@ -20,5 +20,10 @@
       vars:
         ansible_python_interpreter: "{{ python3_exec }}"
 
-    - name: Get mongodb container output
-      shell: docker logs mongodb_ansible
+- name: Get mongodb container output
+  shell: docker logs mongodb_ansible
+  register: container_output
+
+- name: Print mongodb container output
+  debug:
+    var: container_output.stdout
