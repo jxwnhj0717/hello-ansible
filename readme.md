@@ -26,9 +26,24 @@ nginx的配置，主要是upstream服务列表的配置，通过jinja2生成，�
 
 ## Ansible UI
 
+链接：https://blog.csdn.net/NewTyun/article/details/109664826
+
+AnsibleTower、Ansible AWX和Semaphore，看起来作用不大。
+
 ## 腾讯-蓝鲸智云
 
+初步了解，产品比较强大，整合了配置、集成、部署和监控。
+
 ## 和Jenkins集成
+
+### Jenkins Ansible插件
+
+合适。
+
+### ssh调用Ansible
+
+ssh方案的Jenkins输出提示不太友好。
+
 ```
 pipeline {
     agent any
